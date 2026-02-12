@@ -1,163 +1,195 @@
-Sega Dreamcast Legacy - Technical Analysis 
-Context
-This document provides a comprehensive technical analysis of the Sega Dreamcast Legacy website project for portfolio and resume documentation. The project is an interactive, production-quality web application showcasing the Sega Dreamcast console through 11+ pages featuring game showcases, an advanced 3D music player, accessories catalog, and rich media galleries. This analysis breaks down the tech stack, coding languages, features, and technical achievements suitable for resume bullet points.
+# 🎮 Sega Dreamcast Legacy
 
-Tech Stack Summary
-Core Technologies
-React 18.3.1 - Modern frontend framework with hooks-based architecture
-TypeScript - Type-safe JavaScript for all components
-Vite 6.3.5 - Next-generation build tool and dev server
-Tailwind CSS 4.1.12 - Utility-first CSS framework with custom theming
-Motion 12.23.24 - Advanced animation library (Framer Motion successor)
-UI Component Libraries
-Radix UI - 40+ accessible, unstyled primitive components (Accordion, Dialog, Dropdown, Tabs, Slider, Select, Navigation Menu)
-Shadcn UI - 46 custom UI components built on Radix UI
-Material-UI 7.3.5 - Material Design component library
-Lucide React 0.487.0 - Modern icon library (1000+ SVG icons)
-Animation & Interaction
-Motion - Scroll-triggered animations, entrance effects, staggered sequences
-React DnD 16.0.1 - Drag-and-drop functionality with HTML5 backend
-Embla Carousel 8.6.0 - Touch-friendly carousel with native feel
-React Slick 0.31.0 - Additional carousel/slider components
-Forms & State Management
-React Hook Form 7.55.0 - Performant form validation and state
-React Context API - Global navigation state management
-React Hooks - useState, useEffect, useRef, useContext throughout
-Data Visualization & Utilities
-Recharts 2.15.2 - Composable React charting library
-React Day Picker 8.10.1 - Date picker component
-React Responsive Masonry 2.7.1 - Masonry grid layouts
-Sonner 2.0.3 - Toast notification system
-Class Variance Authority 0.7.1 - Component variant management
-Tailwind Merge 3.2.0 - Intelligent Tailwind class merging
-clsx 2.1.1 - Conditional className utility
-next-themes 0.4.6 - Dark mode/theme switching support
-External APIs
-YouTube IFrame API - Music player with real-time playback control
-Build Tools & Development
-Vite - Module bundler with HMR (Hot Module Replacement)
-PostCSS - CSS processing and Tailwind compilation
-TypeScript Compiler - Type checking and transpilation
-npm - Package management
-Programming Languages & File Breakdown
-Primary Languages
-TypeScript/TSX - 83 files
+> A premium, Apple-inspired product showcase celebrating the legendary Sega Dreamcast console through modern web design
 
-All components, pages, and application logic
-Strict type safety with interfaces and type definitions
-Total: ~15,000+ lines of code
-CSS - 4 files
+[![React](https://img.shields.io/badge/React-18.3.1-61DAFB?logo=react&logoColor=white)](https://reactjs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.x-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![Vite](https://img.shields.io/badge/Vite-6.3.5-646CFF?logo=vite&logoColor=white)](https://vitejs.dev/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind-4.1-38B2AC?logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
-theme.css - Custom CSS variables and color tokens
-index.css - Global styles and scrollbar customization
-tailwind.css - Tailwind directives (@tailwind base, components, utilities)
-fonts.css - Font face definitions
-HTML - 1 file
+[📚 Full Documentation](projectspecifications.md)
 
-index.html - Entry point with root div and script tag
-JavaScript - Minimal
+---
 
-Vite/build configuration files
-PostCSS configuration (.mjs format)
-File Structure Statistics
-Total TypeScript files: 83
-Total components: 80+ (including UI library)
-Total pages: 11
-Image assets: 153 (AVIF, WebP, PNG, JPG, GIF)
-Configuration files: 5 (package.json, vite.config.ts, postcss.config.mjs, tsconfig files)
-Project Architecture
-Application Structure
+## 📋 Overview
 
-src/
-├── app/
-│   ├── App.tsx                    # Main routing and navigation context
-│   ├── components/
-│   │   ├── GlobalHeader.tsx       # Navigation with search (571 lines)
-│   │   ├── HeroSection.tsx        # Landing page hero
-│   │   ├── DesignSection.tsx      # Console design showcase
-│   │   ├── PackagingSection.tsx   # Product packaging
-│   │   ├── PerformanceSection.tsx # Technical specs
-│   │   ├── GraphicsSection.tsx    # Graphics capabilities
-│   │   ├── OnlineSection.tsx      # Online features
-│   │   ├── VMUSection.tsx         # VMU info
-│   │   ├── SpecsSection.tsx       # Technical specifications
-│   │   ├── TimelineSection.tsx    # Dreamcast history
-│   │   ├── GameFooter.tsx         # Footer
-│   │   ├── seganet/               # 6 SegaNet components
-│   │   └── ui/                    # 46 Shadcn UI components
-│   ├── pages/
-│   │   ├── MusicPlayer.tsx        # 3D CoverFlow player (725 lines)
-│   │   ├── Gallery.tsx            # Masonry gallery with lightbox (394 lines)
-│   │   ├── SonicAdventure.tsx     # Game showcase (27KB)
-│   │   ├── JetSetRadio.tsx        # Game showcase (39KB)
-│   │   ├── MarvelVsCapcom.tsx     # Game showcase (44KB)
-│   │   ├── TonyHawk.tsx           # Game showcase (37KB)
-│   │   ├── VMU.tsx                # VMU features (10KB)
-│   │   ├── VMUMiniGames.tsx       # Mini-games (11KB)
-│   │   ├── Accessories.tsx        # Accessories catalog (14KB)
-│   │   ├── SegaNet.tsx            # SegaNet wrapper
-│   │   └── Online.tsx             # Online gaming (19KB)
-│   └── data/
-│       └── soundtracks.ts         # Track metadata with YouTube IDs
-├── styles/
-│   ├── theme.css                  # CSS custom properties
-│   ├── index.css                  # Global styles
-│   ├── tailwind.css               # Tailwind imports
-│   └── fonts.css                  # Font definitions
-├── assets/                        # 153 optimized images
-└── main.tsx                       # React app entry point
-Routing System
-Hash-based routing - Custom implementation using window.location.hash
-NavigationContext - React Context API for global navigation state
-11 routes: #home, #sonic-adventure, #jet-set-radio, #marvel-vs-capcom, #tony-hawk, #vmu, #vmu-mini-games, #accessories, #online-seganet, #music-player, #gallery
-Key Features & Functionality
-1. Interactive Music Player (MusicPlayer.tsx)
-3D CoverFlow carousel with Apple-inspired design
-Drag interactions - Mouse and touch gesture support
-YouTube API integration - Real-time playback control
-18+ soundtracks from Dreamcast games
-Debounced search - 500ms delay with live filtering
-Keyboard navigation - Arrow keys for track selection
-Auto-advance - Next track on completion or error
-Progress tracking - Real-time progress bar with time display
-Error handling - Auto-skip for embedding restrictions
-2. Game Showcase Pages (4 games)
-Sonic Adventure - Character profiles, story, gameplay features
-Jet Set Radio - Art style, soundtrack, gameplay mechanics
-Marvel vs. Capcom 2 - Character roster, combat system
-Tony Hawk's Pro Skater 2 - Tricks, levels, soundtrack
-3. Visual Memory Unit (VMU) Pages
-VMU features - Save data, mini-games, LCD screen
-Mini-games showcase - 10+ VMU mini-games with descriptions
-Technical specifications - Storage capacity, dimensions
-4. Responsive Gallery
-Masonry layout - Responsive grid with React Responsive Masonry
-Lightbox/modal - Full-screen image viewing
-Category filtering - Filter by console, games, accessories
-150+ images - Optimized AVIF and WebP formats
-Touch/keyboard navigation - Gesture and keyboard support
-5. Global Navigation & Search
-Dropdown menus - Category-based navigation
-Debounced search - 150ms delay with fuzzy matching
-70+ searchable items - Pages, sections, and features
-Keyboard shortcuts - Arrow keys, Enter, Escape
-Mobile menu - Hamburger with accordion sections
-Responsive breakpoints - Mobile (<768px), tablet, desktop
-6. Accessories Catalog
-Product showcase - Controllers, keyboards, fishing rod, arcade stick
-Technical details - Specifications and descriptions
-High-quality imagery - AVIF and PNG formats
-7. SegaNet & Online Gaming
-Historical information - SegaNet dial-up service
-Connected games - Phantasy Star Online, Quake III Arena
-Hardware setup - Modem and BBA (Broadband Adapter)
-Legacy impact - Influence on modern online gaming
-Technical Highlights & Achievements
-Advanced Algorithms
-3D CoverFlow Carousel Mathematics
-Location: MusicPlayer.tsx:245-310
+A historically accurate, production-quality web application that brings the Sega Dreamcast console to life through **11+ interactive pages**, featuring iconic games like Sonic Adventure and Jet Set Radio, a **3D CoverFlow music player** with YouTube integration, and a comprehensive gallery of **150+ optimized images**.
 
+Built with modern web technologies (React 18.3, TypeScript, Vite 6) and designed with Apple's premium aesthetic in mind, this project showcases advanced frontend development techniques including **3D CSS transforms**, **YouTube IFrame API integration**, and **scroll-triggered animations**.
 
+### ✨ Key Highlights
+
+- 🎵 **Interactive 3D Music Player** - Apple CoverFlow-inspired carousel with drag interactions and YouTube API integration
+- 🎮 **4 Game Showcase Pages** - Dedicated pages for Sonic Adventure, Jet Set Radio, Tony Hawk's Pro Skater 2, and Marvel vs. Capcom
+- 📱 **Fully Responsive** - Mobile-first design with touch-optimized interactions across all breakpoints
+- ⚡ **Performance Optimized** - AVIF/WebP images (60%+ compression), Vite code-splitting, hardware-accelerated 3D transforms
+- 🎨 **Custom Design System** - Authentic Dreamcast colors (#F97308, #093D90) with game-specific palettes
+- 🔍 **Advanced Search** - Debounced search (500ms) with keyboard navigation across 70+ items
+- 🎬 **Smooth Animations** - Scroll-triggered animations via Motion library with staggered entrance sequences
+
+---
+
+## 🎯 Features
+
+### 🎵 Interactive Music Player
+A technically sophisticated music streaming experience featuring:
+- **3D CoverFlow Carousel** - Apple-inspired album art display with 55° perspective transforms and dynamic z-index stacking
+- **YouTube API Integration** - Real-time playback control with comprehensive error handling (5 error code handlers)
+- **Drag Interactions** - Mouse and touch gesture support with 50px threshold detection
+- **Progress Tracking** - Live playback position with formatted time display (M:SS)
+- **Smart Search** - Debounced filtering across 18+ game soundtracks (Jet Set Radio, Sonic Adventure, Crazy Taxi, and more)
+- **Auto-Advance** - Seamless track progression with auto-skip for restricted content
+
+### 🎮 Game Showcase Pages
+Four dedicated pages celebrating Dreamcast's legendary titles:
+- **Rich Media Galleries** - Character artwork, gameplay screenshots, 3D renders
+- **Product Packaging** - Front covers, back covers, disc art, and unboxing visuals
+- **Story & Gameplay** - Comprehensive game overviews and features
+- **Custom Color Schemes** - Unique palettes honoring each game's visual identity
+  - Sonic Adventure: Blues (#0C1E65) and Reds (#E50308)
+  - Jet Set Radio: Vibrant purples (#583EAD) and yellows (#EEEE00)
+  - Tony Hawk's Pro Skater 2: Gritty blacks and rust tones (#C36124)
+  - Marvel vs. Capcom: Comic-inspired reds (#AF271D) and blues (#373C8C)
+
+### 🕹️ VMU (Visual Memory Unit) Experience
+- **VMU Overview Page** - Save data management, LCD screen, portability features
+- **Mini-Games Showcase** - 10+ VMU mini-games with descriptions and controls
+- **Technical Specifications** - Storage capacity, dimensions, battery life
+
+### 🖼️ Responsive Gallery
+- **Masonry Layout** - Adaptive grid system with React Responsive Masonry
+- **Lightbox Modal** - Full-screen viewing with keyboard shortcuts (Escape to close)
+- **Category Filtering** - Filter by console, games, accessories
+- **150+ Optimized Images** - AVIF (63 files) and WebP formats for fast loading
+
+### 🌐 Global Navigation & Search
+- **Multi-Level Dropdowns** - Category-organized navigation (Games, Media, Online)
+- **Advanced Search** - Real-time filtering with debouncing to prevent excessive re-renders
+- **Keyboard Shortcuts** - Arrow key navigation, Enter to select, Escape to close
+- **Mobile Menu** - Collapsible accordion with touch-optimized hit areas
+- **Sticky Header** - Fixed positioning with backdrop blur effect
+
+### 📜 Historical Content
+- **Dreamcast Timeline** - Console history from announcement to discontinuation
+- **SegaNet Documentation** - Online gaming service, connected games, hardware setup
+- **Technical Specifications** - CPU, GPU, memory, storage, and connectivity details
+
+---
+
+## 🚀 Tech Stack
+
+### Core Technologies
+- **React 18.3.1** - Modern hooks-based architecture with Context API for state management
+- **TypeScript** - Full type safety across **83 TypeScript files** (~15,000 lines of code)
+- **Vite 6.3.5** - Lightning-fast build tool with HMR (Hot Module Replacement)
+- **Tailwind CSS 4.1.12** - Utility-first CSS framework with custom theme variables
+- **Motion 12.23.24** - Advanced animation library (successor to Framer Motion)
+
+### UI Component Libraries
+- **Radix UI** - 40+ accessible, unstyled primitive components (Accordion, Dialog, Dropdown, Tabs, Slider, Select, Navigation Menu)
+- **Shadcn UI** - 46 pre-built custom components with Tailwind styling
+- **Lucide React 0.487.0** - Modern icon library with 1000+ SVG icons
+- **Embla Carousel 8.6.0** - Touch-friendly carousel with native feel
+
+### Additional Libraries
+- **React Hook Form 7.55.0** - Performant form validation and state management
+- **Sonner 2.0.3** - Beautiful toast notification system
+- **Class Variance Authority 0.7.1** - Component variant management
+- **Tailwind Merge 3.2.0** - Intelligent Tailwind class merging utility
+- **clsx 2.1.1** - Conditional className utility
+- **next-themes 0.4.6** - Theme management system
+
+### APIs & Integration
+- **YouTube IFrame API** - Music streaming with error handling and state management
+- **Intersection Observer API** - Scroll-triggered animations and lazy loading
+
+---
+
+## 🎨 Design System
+
+### Color Palette
+
+**Authentic Dreamcast Branding:**
+- **Dreamcast Orange** - `#F97308` (Primary CTAs, highlights, icons)
+- **Dreamcast Blue** - `#093D90` (Secondary accents, headers, navigation)
+- **Pure White** - `#FFFFFF` (Primary background, content areas)
+
+**Game-Specific Themes:**
+Each game page features a custom color palette inspired by the game's visual identity, creating distinct atmospheres while maintaining cohesive navigation.
+
+### Typography
+- **Responsive Scaling** - `clamp()` function for fluid typography (e.g., `clamp(48px, 7vw, 96px)`)
+- **Clear Hierarchy** - Consistent font weights (500, 600, 700, 800) and letter spacing
+- **Custom Variables** - Controlled via `theme.css` for consistency across components
+
+### Visual Effects
+- **Glass Morphism** - Backdrop blur effects on modals and search interfaces
+- **3D Transforms** - Hardware-accelerated CSS transforms with `preserve-3d`
+- **Gradient Overlays** - Subtle gradients for depth and visual interest
+- **Smooth Transitions** - Cubic-bezier easing for natural motion
+
+---
+
+## 🏗️ Project Structure
+
+```
+/
+├── src/
+│   ├── app/
+│   │   ├── App.tsx                      # Main routing and navigation context
+│   │   ├── components/
+│   │   │   ├── GlobalHeader.tsx         # Site navigation with search (571 lines)
+│   │   │   ├── HeroSection.tsx          # Landing page hero
+│   │   │   ├── DesignSection.tsx        # Console design showcase
+│   │   │   ├── PerformanceSection.tsx   # Technical capabilities
+│   │   │   ├── VMUSection.tsx           # Visual Memory Unit features
+│   │   │   ├── TimelineSection.tsx      # Dreamcast history
+│   │   │   ├── seganet/                 # SegaNet-specific components (6 files)
+│   │   │   └── ui/                      # Shadcn UI components (46 files)
+│   │   ├── pages/
+│   │   │   ├── MusicPlayer.tsx          # 3D CoverFlow music player (725 lines)
+│   │   │   ├── Gallery.tsx              # Masonry gallery with lightbox (394 lines)
+│   │   │   ├── SonicAdventure.tsx       # Sonic Adventure game page (27KB)
+│   │   │   ├── JetSetRadio.tsx          # Jet Set Radio game page (39KB)
+│   │   │   ├── MarvelVsCapcom.tsx       # Marvel vs. Capcom page (44KB)
+│   │   │   ├── TonyHawk.tsx             # Tony Hawk's Pro Skater 2 page (37KB)
+│   │   │   ├── VMU.tsx                  # VMU dedicated page
+│   │   │   ├── VMUMiniGames.tsx         # VMU mini-games showcase
+│   │   │   ├── Accessories.tsx          # Accessories catalog
+│   │   │   ├── SegaNet.tsx              # SegaNet dedicated page
+│   │   │   └── Online.tsx               # Online gaming page
+│   │   └── data/
+│   │       └── soundtracks.ts           # Game soundtrack metadata with YouTube IDs
+│   └── styles/
+│       ├── theme.css                    # CSS custom properties & color tokens
+│       ├── index.css                    # Global styles & scrollbar customization
+│       ├── tailwind.css                 # Tailwind directives
+│       └── fonts.css                    # Font definitions
+├── guidelines/
+│   └── Guidelines.md                    # Design system documentation
+├── projectspecifications.md             # Comprehensive technical documentation
+├── package.json                         # Dependencies & scripts
+├── vite.config.ts                       # Vite configuration
+└── postcss.config.mjs                   # PostCSS configuration
+```
+
+### Key Statistics
+- **83 TypeScript files** - ~15,000 lines of code
+- **11 pages** - Complete multi-page application experience
+- **80+ components** - Modular, reusable component architecture
+- **153 image assets** - AVIF, WebP, PNG optimized formats
+
+---
+
+## 💡 Technical Highlights
+
+### 3D CoverFlow Algorithm
+**Location:** `src/app/pages/MusicPlayer.tsx`
+
+Implements Apple-inspired 3D carousel using advanced CSS transforms:
+
+```typescript
 // Perspective transform calculations
 const offset = index - currentIndex + (isDragging ? dragOffset / 100 : 0)
 const distance = Math.abs(offset)
@@ -170,197 +202,249 @@ transform: `
   translateZ(${offset === 0 ? 80 : -distance * 50}px)
   scale(${scale})
 `
-Technical features:
+```
 
-55° rotation angle per card offset
-Dynamic scaling based on distance from center (0.8 - 1.15)
-Z-index layering algorithm (1000 for center, decreasing by distance)
-Perspective depth at 1500px
-CSS 3D transforms with preserve-3d
-Debounced Search Implementation
-Location: GlobalHeader.tsx:145-165, MusicPlayer.tsx:180-195
+**Features:**
+- 55° rotation angle per card offset
+- Dynamic scaling based on distance from center (0.8 - 1.15)
+- Z-index layering algorithm (1000 for center, decreasing by distance)
+- 1500px perspective depth for realistic 3D effect
 
+### YouTube API Integration
+**Location:** `src/app/pages/MusicPlayer.tsx`
 
-// 500ms debounce in Music Player
-useEffect(() => {
-  const timer = setTimeout(() => {
-    const filtered = allTracks.filter(track =>
-      track.gameTitle.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      track.trackName.toLowerCase().includes(searchQuery.toLowerCase())
-    )
-    setFilteredTracks(filtered)
-  }, 500)
-  return () => clearTimeout(timer)
-}, [searchQuery])
-Benefits:
+Comprehensive YouTube IFrame API integration with robust error handling:
 
-Prevents excessive re-renders on every keystroke
-150-500ms delays depending on use case
-Automatic cleanup on component unmount
-API Integration
-YouTube IFrame API
-Location: MusicPlayer.tsx:200-450
+**State Management:**
+- 7 critical states: `isReady`, `isPlaying`, `isLoading`, `currentTime`, `duration`, `error`, `selectedTrack`
+- Player instance stored in `useRef` for lifecycle management
+- 500ms interval for real-time progress tracking
 
-State management:
-
-7 critical states: isReady, isPlaying, isLoading, currentTime, duration, error, selectedTrack
-Player instance stored in useRef for lifecycle management
-Error handling (5 error codes):
-
-
+**Error Handling:**
+```typescript
 case 2:   // Invalid video ID → Auto-skip
 case 100: // Video not found → Auto-skip
 case 101: // Embedding disabled (owner) → Auto-skip with message
 case 150: // Embedding disabled (request) → Auto-skip with message
 case 5:   // HTML5 player error → Display error
-API methods used:
+```
 
-playVideo(), pauseVideo(), stopVideo()
-loadVideoById(videoId)
-getCurrentTime(), getDuration()
-State detection: PLAYING, PAUSED, BUFFERING, CUED, ENDED
-Auto-advance logic:
+**API Methods:**
+- `playVideo()`, `pauseVideo()`, `stopVideo()` - Playback control
+- `loadVideoById(videoId)` - Dynamic track loading
+- `getCurrentTime()`, `getDuration()` - Progress tracking
+- State detection: `PLAYING`, `PAUSED`, `ENDED`, `BUFFERING`, `CUED`
 
+### Performance Optimizations
 
-if (event.data === 0) { // Video ended
-  const nextIndex = (currentIndex + 1) % filteredTracks.length
-  handleTrackSelect(nextIndex)
-}
-Animation System
-Scroll-Triggered Animations
-Location: Multiple files using Motion library
+1. **Modern Image Formats**
+   - AVIF (63 files) - 50-80% smaller than JPEG/PNG
+   - WebP fallbacks for browser compatibility
+   - Optimized asset pipeline via Vite
 
-Pattern:
+2. **Code Splitting**
+   - Automatic route-based splitting via Vite
+   - Lazy component loading
+   - Tree-shaking for unused code elimination
 
+3. **Debounced Event Handlers**
+   - Search: 500ms delay prevents excessive filtering
+   - Scroll: Throttled for smooth performance
+   - Drag: 50px threshold prevents accidental swipes
 
-import { motion, useInView } from 'motion/react'
+4. **Hardware-Accelerated Transforms**
+   - CSS 3D transforms with `transform: translate3d()`
+   - GPU acceleration via `preserve-3d`
+   - Smooth 60fps animations
 
-const ref = useRef(null)
-const isInView = useInView(ref, { once: true, margin: '-100px' })
+5. **Single Player Instance**
+   - YouTube player initialized once
+   - Videos swapped via `loadVideoById()` vs recreation
+   - Cleanup functions for intervals/timeouts
 
-<motion.div
-  ref={ref}
-  initial={{ opacity: 0, y: 20 }}
-  animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-  transition={{ duration: 0.8, ease: 'easeOut' }}
->
-Used in: TimelineSection, PerformanceSection, VMUSection, GraphicsSection
+### Responsive Design Strategy
 
-Staggered Entrance Sequences
+**Breakpoints:**
+- **Mobile**: < 768px (stacked layouts, touch-optimized)
+- **Tablet**: 768px - 1024px (hybrid layouts)
+- **Desktop**: > 1024px (full grid layouts, hover states)
 
-// Timeline items animate in sequence
-transition={{ duration: 0.8, delay: index * 0.2 }}
-Animation types:
+**Mobile Optimizations:**
+- Touch event handlers (`onTouchStart`, `onTouchMove`, `onTouchEnd`)
+- Conditional rendering based on viewport width
+- Album size reduction: 200px → 170px on mobile
+- Spacing adjustments: 160px → 120px gap on mobile
+- Collapsible navigation with accordion sections
 
-Fade in/out (opacity: 0 → 1)
-Slide (x: -40/40, y: 20 → 0)
-Scale (scale: 0.9 → 1)
-Stagger (incremental delays: 0.2s, 0.4s, 0.6s)
-Responsive Design
-Fluid Typography
+### Navigation System
 
-clamp(48px, 7vw, 96px)  /* Headings */
-clamp(18px, 2vw, 24px)  /* Body text */
-clamp(14px, 1.5vw, 18px) /* Small text */
-Breakpoint Strategy
-Mobile: < 768px (stacked layouts, hamburger menu)
-Tablet: 768px - 1024px (hybrid layouts)
-Desktop: > 1024px (full grid layouts, hover states)
-Mobile Optimizations
-Touch event handlers (onTouchStart, onTouchMove, onTouchEnd)
-Conditional rendering based on viewport width
-Album size reduction: 200px → 170px on mobile
-Spacing adjustments: 160px → 120px gap on mobile
-Performance Optimizations
-Modern image formats: AVIF (63 files) and WebP for 50-80% smaller file sizes
-Code splitting: Vite automatically splits routes and components
-Debounced event handlers: Search (500ms), scroll, drag
-Hardware-accelerated transforms: CSS 3D with GPU acceleration
-Single YouTube player instance: Video swap vs. player recreation
-Cleanup functions: Interval/timeout removal in useEffect returns
-Resume-Ready Bullet Points
-Comprehensive Version (5-7 bullets)
-Sega Dreamcast Legacy | React, TypeScript, Vite, Tailwind CSS, Motion
-[Live Demo] | [GitHub]
+**Hash-Based Routing:**
+Custom implementation using `window.location.hash` with React Context:
 
-• Architected full-stack single-page application with hash-based routing managing 11+ interactive pages, 80+ TypeScript components, and 150+ optimized assets (AVIF/WebP formats) using React 18.3, Vite 6, and Tailwind CSS 4
+```typescript
+export const NavigationContext = createContext({
+  navigate: (path: string) => {},
+});
+```
 
-• Engineered 3D CoverFlow music player with Apple-inspired design integrating YouTube IFrame API, featuring drag interactions, 55° perspective transforms, debounced search (500ms), and real-time playback tracking across 18+ game soundtracks
+**11 Routes:**
+- `#home` - Main Dreamcast landing page
+- `#sonic-adventure` - Sonic Adventure game page
+- `#jet-set-radio` - Jet Set Radio game page
+- `#tony-hawk` - Tony Hawk's Pro Skater 2 page
+- `#marvel-vs-capcom` - Marvel vs. Capcom page
+- `#vmu` - VMU dedicated page
+- `#vmu-mini-games` - VMU mini-games page
+- `#accessories` - Accessories catalog
+- `#online-seganet` - Online gaming page
+- `#music-player` - Interactive music player
+- `#gallery` - Media gallery
 
-• Built responsive component library using React 18.3 hooks (useState, useEffect, useContext) and 40+ Radix UI accessible primitives, implementing scroll-triggered animations via Motion library and custom theming with CSS variables
+---
 
-• Implemented advanced UI patterns including accordion navigation with keyboard shortcuts, masonry gallery with lightbox modal, and debounced search with fuzzy matching across 70+ searchable items
+## 🚀 Getting Started
 
-• Optimized asset delivery pipeline with Vite code-splitting, modern image formats (AVIF 60%+ compression), and hardware-accelerated CSS 3D transforms, achieving fast load times across mobile/desktop breakpoints
+### Prerequisites
+- **Node.js 18+** (LTS recommended)
+- **npm** or **yarn** package manager
 
-• Developed modular component architecture with NavigationContext for global state management, TypeScript interfaces for type safety, and reusable UI components following DRY principles
+### Installation
 
-• Integrated external APIs with comprehensive error handling, managing 5 YouTube error codes with auto-skip functionality and graceful degradation for embedding restrictions
+```bash
+# Clone the repository
+git clone https://github.com/yourusername/sega-dreamcast-legacy.git
 
-Concise Version (3-4 bullets)
-Sega Dreamcast Legacy | React, TypeScript, Vite, Tailwind CSS
-[Live Demo] | [GitHub]
+# Navigate to project directory
+cd sega-dreamcast-legacy
 
-• Built 11-page interactive SPA with React 18.3, TypeScript, and hash-based routing, managing 80+ components and 150+ optimized assets (AVIF/WebP) with Vite build pipeline
+# Install dependencies
+npm install
+```
 
-• Engineered 3D CoverFlow music player integrating YouTube IFrame API with drag interactions, 55° perspective transforms, debounced search, and real-time playback tracking across 18+ soundtracks
+### Development
 
-• Implemented responsive component library using React hooks, 40+ Radix UI primitives, and Motion-powered scroll animations, achieving full mobile/desktop responsiveness with Tailwind CSS 4
+```bash
+# Start development server (default: http://localhost:5173)
+npm run dev
+```
 
-• Optimized performance with code-splitting, hardware-accelerated 3D transforms, and modern image formats, featuring keyboard navigation and comprehensive error handling
+The application will open with Hot Module Replacement (HMR) enabled. Changes to source files will automatically reload in the browser.
 
-Minimal Version (2 bullets - for space-constrained resumes)
-Sega Dreamcast Legacy | React, TypeScript, Tailwind CSS
-[Live Demo]
+### Build
 
-• Developed 11-page React/TypeScript SPA with 80+ components, featuring 3D CoverFlow music player with YouTube API integration, drag interactions, and 150+ optimized assets
+```bash
+# Create production build
+npm run build
 
-• Implemented responsive design with Motion animations, Radix UI primitives, hash-based routing, and Vite build optimization across mobile/desktop breakpoints
+# Preview production build locally
+npm run preview
+```
 
-Skills Demonstrated (ATS Keywords)
-Frontend Development
-React, React Hooks, TypeScript, JavaScript ES6+, HTML5, CSS3, JSX/TSX
+The production build will be output to the `dist/` directory, optimized with:
+- Minified JavaScript and CSS
+- Code splitting for optimal loading
+- Compressed assets (AVIF/WebP)
+- Tree-shaking for minimal bundle size
 
-Frameworks & Libraries
-Vite, Tailwind CSS, Motion (Framer Motion), Radix UI, Shadcn UI, Material-UI
+---
 
-State Management
-React Context API, useState, useEffect, useRef, useContext
+## 📱 Responsive Design
 
-APIs & Integration
-YouTube IFrame API, REST APIs, Intersection Observer API, Web APIs
+The application is fully responsive with a mobile-first approach:
 
-UI/UX
-Responsive Design, Mobile-First Design, Accessibility (ARIA), Component Libraries, Design Systems
+### Features by Breakpoint
 
-Performance
-Code Splitting, Lazy Loading, Asset Optimization, Build Optimization, CSS Optimization
+**Mobile (< 768px):**
+- Collapsible hamburger navigation
+- Stacked content layouts
+- Touch-optimized interactions (50px minimum hit areas)
+- Reduced album art size (170px)
+- Single-column galleries
 
-Development Tools
-npm, Git, Version Control, Modern Build Tools, DevTools
+**Tablet (768px - 1024px):**
+- Hybrid layouts with selective stacking
+- Dropdown navigation menus
+- Two-column galleries
+- Optimized spacing
 
-Architectural Patterns
-Component Architecture, Single Page Application (SPA), Hash-Based Routing, Context Pattern, Custom Hooks
+**Desktop (> 1024px):**
+- Full multi-column layouts
+- Hover states and transitions
+- Large album art (200px)
+- Maximum width constraints (980px - 1400px)
+- Multi-column galleries with masonry
 
-CSS Techniques
-CSS Grid, Flexbox, CSS Variables, CSS Transforms (3D), Animations, Tailwind Utility Classes
+### Touch Optimizations
+- Touch event handlers for drag interactions
+- Prevent default scroll during swipe
+- Visual feedback for touch actions
+- Larger tap targets for mobile devices
 
-Advanced Features
-Drag & Drop, Keyboard Navigation, Debouncing, Throttling, Error Handling, Search/Filter
+---
 
-Quantifiable Metrics
-Use these numbers strategically in interviews and resume bullets:
+## 📚 Documentation
 
-11 pages - Complete multi-page application
-80+ components - Component library scale
-150+ images - Asset management complexity
-83 TypeScript files - Codebase size
-15,000+ lines of code - Development effort
-18+ soundtracks - Content volume
-70+ searchable items - Search functionality
-40+ Radix UI components - UI library integration
-5 error codes handled - Error handling comprehensiveness
-3 breakpoints - Responsive design coverage
-500ms debounce - Performance optimization
-55° rotation - Technical precision (3D transforms)
-React 18.3, Vite 6, Tailwind CSS 4 - Latest stable technologies
+For detailed technical documentation, architecture decisions, and implementation details, see:
+
+- **[Project Specifications](projectspecifications.md)** - Comprehensive technical documentation
+- **[Design Guidelines](guidelines/Guidelines.md)** - Design system and color guidelines
+
+---
+
+## 🎓 Learning Highlights
+
+This project demonstrates proficiency in:
+
+### Frontend Development
+- Modern React patterns (hooks, context, functional components)
+- TypeScript for type-safe development
+- Component-driven architecture
+- State management strategies
+
+### UI/UX Design
+- Responsive design principles
+- Mobile-first development
+- Accessibility considerations (ARIA, keyboard navigation)
+- Design system implementation
+
+### Performance Engineering
+- Image optimization strategies
+- Code splitting and lazy loading
+- Debouncing and throttling
+- Hardware-accelerated animations
+
+### API Integration
+- YouTube IFrame API
+- Error handling and recovery
+- Asynchronous state management
+- External service integration
+
+### Build Tools & DevOps
+- Vite configuration and optimization
+- Modern CSS (Tailwind, CSS Variables, 3D Transforms)
+- Asset pipeline management
+- Production build optimization
+
+---
+
+## 📄 License
+
+MIT License - feel free to use this project for learning and portfolio purposes.
+
+---
+
+## 👨‍💻 Author
+
+**Torien Mitchell**
+
+A passionate frontend developer with expertise in React, TypeScript, and modern web technologies. This project showcases advanced UI/UX implementation, performance optimization, and attention to detail in recreating premium product experiences.
+
+---
+
+<div align="center">
+
+**Built with ❤️ for the Sega Dreamcast community**
+
+⭐ Star this repo if you found it interesting!
+
+</div>
